@@ -31,8 +31,8 @@ log_CYAN() {
 
 # SmartDNS 一键安装和配置脚本
 # 请确保使用 sudo 或 root 权限运行此脚本
-REMOTE_SCRIPT_URL="https://raw.githubusercontent.com/lthero-big/Smartdns_sniproxy_installer/refs/heads/main/smtdns_install.sh"
-REMOTE_STREAM_CONFIG_FILE_URL="https://raw.githubusercontent.com/lthero-big/Smartdns_sniproxy_installer/refs/heads/main/StreamConfig.yaml"
+REMOTE_SCRIPT_URL="https://raw.githubusercontent.com/KamiyamaShiki-SAMA/Smartdns_sniproxy_installer/refs/heads/main/smtdns_install.sh"
+REMOTE_STREAM_CONFIG_FILE_URL="https://raw.githubusercontent.com/KamiyamaShiki-SAMA/Smartdns_sniproxy_installer/refs/heads/main/StreamConfig.yaml"
 REMOTE_DNSMASQ_SNIPROXY_URL=https://raw.githubusercontent.com/myxuchangbin/dnsmasq_sniproxy_install/master/dnsmasq_sniproxy.sh
 REMOTE_SMARTDNS_URL="https://github.com/pymumu/smartdns/releases/download/Release46/smartdns.1.2024.06.12-2222.x86-linux-all.tar.gz"
 REMOTE_RegionRestrictionCheck_URL=https://raw.githubusercontent.com/1-stream/RegionRestrictionCheck/main/check.sh
@@ -47,8 +47,8 @@ SNIPROXY_CONFIG="/etc/sniproxy.conf"
 # 检测脚本更新
 check_script_update() {
   echo -e "${GREEN}正在检查脚本更新...${RESET}"
-  # 设置超时时间为 10 秒
-  REMOTE_VERSION=$(curl --max-time 10 -fsSL "$REMOTE_SCRIPT_URL" | grep -E "^SCRIPT_VERSION=" | cut -d'"' -f2)
+  # 设置超时时间为 5 秒
+  REMOTE_VERSION=$(curl --max-time 5 -fsSL "$REMOTE_SCRIPT_URL" | grep -E "^SCRIPT_VERSION=" | cut -d'"' -f2)
   # 检查是否成功获取远程版本
   if [ $? -ne 0 ]; then
     echo -e "${YELLOW}无法获取到最新版本 (超时或网络问题，请检测DNS是否配置正确，可尝试急救还原DNS设置).${RESET}"
